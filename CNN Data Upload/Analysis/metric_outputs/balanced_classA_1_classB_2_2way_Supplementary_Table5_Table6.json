@@ -1,0 +1,4 @@
+
+{"HSI": {"method": {"value": "KNN"}, "sensitivity": {"value": 0.972972972972973}, "specificity": {"value": 0.9354838709677419}, "PPV": {"value": 0.9473684210526315}, "NPV": {"value": 0.9666666666666667}, "Accuracy": {"value": 0.9558823529411765}, "FPR": {"value": 0.06451612903225806}, "FNR": {"value": 0.02702702702702703}, "FDR": {"value": 0.05263157894736842}, "F1": {"value": 0.96}, "meanAccuracy": {"value": 0.9558823529411765}}}
+
+{"HSI": {"method": {"value": "SVM"}, "sensitivity": {"value": 1.0}, "specificity": {"value": 0.967741935483871}, "PPV": {"value": 0.9736842105263158}, "NPV": {"value": 1.0}, "Accuracy": {"value": 0.9852941176470589}, "FPR": {"value": 0.03225806451612903}, "FNR": {"value": 0.0}, "FDR": {"value": 0.02631578947368421}, "F1": {"value": 0.9866666666666667}, "meanAccuracy": {"value": 0.9852941176470589}}}

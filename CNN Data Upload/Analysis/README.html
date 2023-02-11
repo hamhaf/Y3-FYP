@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>HSI Analysis ML</title>
+        <style>
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="hsi-analysis-ml">HSI Analysis ML</h1>
+<p>Deep learning and machine learning methods for hyper-spectral imaging data</p>
+<p align="center"><img width="85%" src="file:////home/sharib/Desktop/HSI-Analysis/HSI-Analysis-v2.0/images/HSI-v2.jpg" /></p>
+<p><strong>Contributor:</strong> Dr. Sharib Ali <a href="mailto:shairb.ali@eng.ox.ac.uk">shairb.ali@eng.ox.ac.uk</a></p>
+<p><strong>Collaborator:</strong> Dale Waterhouse <a href="mailto:d.waterhouse@ucl.ac.uk">d.waterhouse@ucl.ac.uk</a></p>
+<h4 id="requirements">Requirements</h4>
+<ul>
+<li>Miniconda</li>
+<li>Linux/Unix only</li>
+<li>pyTorch &gt;1.5</li>
+<li>CUDA &gt; 10.0</li>
+<li>scikit-learn</li>
+<li>matplotlib</li>
+<li>datatable</li>
+</ul>
+<h3 id="setup">Setup</h3>
+<ul>
+<li><a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/">Install miniconda</a></li>
+<li>Run <code>bash initial_setup.sh</code></li>
+</ul>
+<h4 id="data">Data</h4>
+<ul>
+<li>Both training and test data are provided in the <code>data</code> folder</li>
+<li>Training data and test data for noExclusion and balanced datasets</li>
+</ul>
+<h4 id="results">Results</h4>
+<ul>
+<li>Computed results are also included in <code>metrics_outputs</code> folder as <code>.json file</code> produced from the provided codes</li>
+<li><code>noExclusion</code> dataset (Table 2, Supplementary Tables 2-3) and <code>balanced</code> dataset (Supplementary Tables 4-6)</li>
+</ul>
+<h4 id="training-and-testing-classical-machine-learning-approaches">Training and testing classical machine learning approaches</h4>
+<ul>
+<li>
+<p>To reproduce Supplementary Tables 2 and Table 3, please run:
+<code>bash Supplementary_Table2_Table3.sh</code></p>
+</li>
+<li>
+<p>To reproduce Supplementary Tables 5 and Table 6, please run:
+<code>bash Supplementary_Table5_Table6.sh</code></p>
+</li>
+</ul>
+<p><strong>RESULTS SAVED IN:</strong> <code>results_Classical_ML folder</code></p>
+<p>Includes:</p>
+<ul>
+<li>KNN</li>
+<li>SVM (with rbf kernel set)</li>
+</ul>
+<h4 id="training-a-deep-learning-model">Training a deep learning model</h4>
+<ul>
+<li>
+<p>For 3-way and 2-way 1D CNN classsification</p>
+<p><code>bash script_train.sh</code></p>
+</li>
+</ul>
+<h4 id="testing-a-deep-learning-model">Testing a deep learning model</h4>
+<p><em>Note: please train the model before running this, seeds are allocated for reproducibility</em></p>
+<ul>
+<li>To reproduce table 2 in original manuscript, please run:
+<code>bash Table2.sh</code></li>
+</ul>
+<p><strong>RESULTS SAVED IN:</strong> <code>results_noExlusion_test_data* folder</code></p>
+<ul>
+<li>To reproduce table 4 in supplementary manuscript, please run:
+<code>bash Supplementary_Table4.sh</code></li>
+</ul>
+<p><strong>RESULTS SAVED IN:</strong> <code>results_balanced_test_data* folder</code></p>
+<p><strong>Note:</strong> Use of pytorch with CUDA is recommended to obtain 1D-CNN results reported in the paper.</p>
+<p><em>If you find any inconsistencies in results or code then please report to</em> <a href="sharib.ali@eng.ox.ac.uk">Sharib Ali</a></p>
+
+    </body>
+    </html>

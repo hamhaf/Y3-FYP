@@ -14,7 +14,7 @@ ROOT_FOLDER=$BASE_FOLDER
     # Install dependencies: scikit-learn, matplotlib
 
 # Step 2: Activate your environment
-source activate myenv
+# source activate myenv
 
 # Step3: Set class and your dataset
 nClasses=3

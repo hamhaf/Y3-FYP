@@ -31,7 +31,6 @@ then
     --test_data $BASE_FOLDER/data/$dataType'_test_data.csv' --test_label $BASE_FOLDER/data/$dataType'_test_label.csv' --num_labels 3  --classSplit '1,2,3'
 
 fi 
-exit 1
 
 nClasses=2
 ##========================= Classical ML 2 class category training ===============================================##

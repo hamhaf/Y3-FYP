@@ -27,7 +27,7 @@ then
 ##========================= Classical ML for 3 class category training ===============================================##
     echo '---->' $dataType 'data for training... for ' $nClasses'-way classification'
     echo "$BASE_FOLDER/knn_SVM.py"
-    python "/mnt/c/Users/sc19mhh/Desktop/Hamzah/Uni/Comp Sci/Third Year/FYP/Sharib code/CNN Data Upload/Analysis/knn_SVM.py" --train_data $BASE_FOLDER/data/$dataType'_train_data.csv' --train_label $BASE_FOLDER/data/$dataType'_train_label.csv' \
+    python "$BASE_FOLDER/knn_SVM.py" --train_data $BASE_FOLDER/data/$dataType'_train_data.csv' --train_label $BASE_FOLDER/data/$dataType'_train_label.csv' \
     --test_data $BASE_FOLDER/data/$dataType'_test_data.csv' --test_label $BASE_FOLDER/data/$dataType'_test_label.csv' --num_labels 3  --classSplit '1,2,3'
 
 fi 

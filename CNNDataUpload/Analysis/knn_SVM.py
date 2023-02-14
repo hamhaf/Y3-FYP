@@ -20,6 +20,7 @@ import argparse
 
 debug = 0
 
+# plots the confusion matrices
 def plots_prints_metrics(clf_svm, y_test1, predicted, resultFileName, nclass):
     if nclass==2:
         from utils.plot_PR_confusionMat import confusionPlot  
@@ -32,6 +33,7 @@ def plots_prints_metrics(clf_svm, y_test1, predicted, resultFileName, nclass):
     print("Confusion matrix:\n%s" % metrics.confusion_matrix(y_test1, predicted))
     return cfMat
 
+# not entirely sure about this normalisation function
 def normaliseLabels(ylabel, nlabels):
 
     if (nlabels == 3):
@@ -50,7 +52,7 @@ def normaliseLabels(ylabel, nlabels):
     return ylabel
              
              
-        
+# gets the arguments from cmd line
 def get_argparser():
     
     parser = argparse.ArgumentParser()
@@ -83,6 +85,8 @@ def get_argparser():
 if __name__ == '__main__':
     
     opts = get_argparser().parse_args()
+    # gets filename from path by taking last element of 1st split, then removes file extension
+    # from filename with second split
     fileName = ((opts.train_data).split('/')[-1]).split('.')[0]
     
     classA = int(opts.classSplit.split(',')[0])
@@ -110,14 +114,19 @@ if __name__ == '__main__':
     # data loading 
     data = pd.read_csv(csv_train_data, header = None)
     df = pd.DataFrame(data.values)
+    # convert df to np array - X_train1 will be an array of arrays (2D array)
+    # where each element represents a row from the dataset
     X_train1 = np.array(df, dtype=float)
     data = pd.read_csv(csv_test_data, header = None)
     df = pd.DataFrame(data.values)
     X_test1 = np.array(df, dtype=float)
-    #
+    # read in the training labels
     ytrain = pd.read_csv(csv_train_labels, header=None)
+    # convert to 1D np array
     y_en= np.array(ytrain[0])
+    # reshape into 1D normal array
     y_train1 = y_en.reshape(y_en.shape[0],1) 
+    # normalise labels
     y_train1 = normaliseLabels(y_train1, nlabel)
     # for two class we need to adject no.
 
@@ -126,7 +135,12 @@ if __name__ == '__main__':
     y_test1 = y_en.reshape(y_en.shape[0],1)
     
     y_test1 = normaliseLabels(y_test1, nlabel)
+
     # perform PCA
+    # what is PCA: dimensionality-reduction method that is often used to 
+    # reduce the dimensionality of large data sets, by transforming a large set 
+    # of variables into a smaller one that still contains most of the information in
+    # the large set.
     from sklearn.decomposition import PCA
     time_start = time.time()
     # Ncomponents=300 # number of coordinates

@@ -128,11 +128,10 @@ if __name__ == '__main__':
     # reshape into 1D normal array
     y_train1 = y_en.reshape(y_en.shape[0],1) 
     # normalise labels - make them start from 0
-    print(f"before normalise: {y_train1.shape}")
+    # print(f"before normalise: {y_train1.shape}")
     y_train1 = normaliseLabels(y_train1, nlabel)
-    print(f"after normalise: {y_train1.shape}")
+    # print(f"after normalise: {y_train1.shape}")
     # for two class we need to adject no.
-    exit()
 
     y_test = pd.read_csv(csv_test_labels, header=None)
     y_en= np.array(y_test[0])
@@ -151,9 +150,14 @@ if __name__ == '__main__':
     #your code here (store the components in X_reduced)
     # pca = PCA(n_components=Ncomponents)
     pca = PCA()
+    beforepca = X_train1
     X_reduced=pca.fit_transform(X_train1)
     print(X_reduced.shape)
     print('PCA time: {} seconds'.format(time.time()-time_start))
+    # print(f"beforepca: {type(beforepca)}, afterpca: {type(X_reduced)}" )
+    # print(f"beforepca = afterpca: {beforepca == X_reduced}" )
+    print(f"beforepca: {(beforepca[:15])}, afterpca: {(X_reduced[:15])}")
+    exit()
     
     ## LDA/QDA
     from sklearn.model_selection import train_test_split

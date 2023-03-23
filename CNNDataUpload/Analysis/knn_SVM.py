@@ -34,6 +34,7 @@ def plots_prints_metrics(clf_svm, y_test1, predicted, resultFileName, nclass):
     return cfMat
 
 # not entirely sure about this normalisation function
+# this just makes sure the labels are 0,1,2
 def normaliseLabels(ylabel, nlabels):
 
     if (nlabels == 3):
@@ -126,9 +127,12 @@ if __name__ == '__main__':
     y_en= np.array(ytrain[0])
     # reshape into 1D normal array
     y_train1 = y_en.reshape(y_en.shape[0],1) 
-    # normalise labels
+    # normalise labels - make them start from 0
+    print(f"before normalise: {y_train1.shape}")
     y_train1 = normaliseLabels(y_train1, nlabel)
+    print(f"after normalise: {y_train1.shape}")
     # for two class we need to adject no.
+    exit()
 
     y_test = pd.read_csv(csv_test_labels, header=None)
     y_en= np.array(y_test[0])

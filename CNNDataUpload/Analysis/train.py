@@ -60,14 +60,14 @@ if __name__ == '__main__':
     os.makedirs(opts.outputFolder_ckpt, exist_ok= True)
     
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+    # print(device)
+    # if device !='cpu':
+        # print('cuda detected -------->')
+        # os.environ["CUDA_VISIBLE_DEVICES"] =opts.gpu_id
+        # device = 'cuda'
+        # torch.backends.cudnn.deterministic = True
+        # torch.backends.cudnn.benchmark = False
     print(device)
-    if device !='cpu':
-        print('cuda detected -------->')
-        os.environ["CUDA_VISIBLE_DEVICES"] =opts.gpu_id
-        device = 'cuda'
-        torch.backends.cudnn.deterministic = True
-        torch.backends.cudnn.benchmark = False
-        
     nlabel = opts.num_labels
 
     classSplit = opts.classSplit

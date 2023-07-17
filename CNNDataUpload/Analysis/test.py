@@ -88,7 +88,9 @@ if __name__ == '__main__':
     directoryName = 'results_'+ fileName
     os.makedirs(directoryName, exist_ok = True)
       
-    device = 'cuda'
+    # device = 'cuda'
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
     m1 = model(nlabel).to(device)
 
     ckptFile = opts.ckptFolderAndFile
@@ -109,9 +111,11 @@ if __name__ == '__main__':
     with torch.no_grad():
         for k, sample_val in enumerate(dataloade_val):
             st = time.time()    
-            inputs = torch.cuda.FloatTensor(sample_val['feature'].to(device))
-            labels = torch.cuda.FloatTensor(sample_val['label'].to(device).type(torch.float).unsqueeze(1))
-            
+            # inputs = torch.cuda.FloatTensor(sample_val['feature'].to(device))
+            # labels = torch.cuda.FloatTensor(sample_val['label'].to(device).type(torch.float).unsqueeze(1))
+            inputs = torch.FloatTensor(sample_val['feature']).to(device)
+            labels = torch.FloatTensor(sample_val['label'].type(torch.float).unsqueeze(1)).to(device)
+
             logps = m1.predict(inputs)
             end = time.time()    
             # print('Elapsed test time: {}'.format(end-st)) 

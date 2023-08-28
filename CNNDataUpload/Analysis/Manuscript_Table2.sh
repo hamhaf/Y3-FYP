@@ -25,37 +25,37 @@ then
 fi
 
 ##========================= 2 class category training ===============================================##
-classPairSrting='1,2'
-classA='1'
-classB='2'
-nClasses=2
-echo '================> 2-way classification test <======================='
-if (( $nClasses == 2 ))
-then
+# classPairSrting='1,2'
+# classA='1'
+# classB='2'
+# nClasses=2
+# echo '================> 2-way classification test <======================='
+# if (( $nClasses == 2 ))
+# then
 
-    echo '================> 2-way classification: Squamous vs Barrets <======================='
-    classPairSrting='1,2'
-    classA='1'
-    classB='2'
-    python $BASE_FOLDER/test.py --test_data $BASE_FOLDER/data/$dataType'_test_data_'$classA'_'$classB'.csv' --test_label $BASE_FOLDER/data/$dataType'_test_label_'$classA'_'$classB'.csv' --fileType $dataType \
-    --num_labels 2 --ckptFolderAndFile $BASE_FOLDER/ckptDir/$dataType'_sept_nclasses_2_v20_'$classA'_'$classB'.pth' --classSplit $classPairSrting --gpu_id 0
-
-
-
-    echo '================> 2-way classification: Squamous vs Dysplasia <======================='
-    classPairSrting='1,3'
-    classA='1'
-    classB='3'
-    python $BASE_FOLDER/test.py --test_data $BASE_FOLDER/data/$dataType'_test_data_'$classA'_'$classB'.csv' --test_label $BASE_FOLDER/data/$dataType'_test_label_'$classA'_'$classB'.csv' --fileType $dataType \
-    --num_labels 2 --ckptFolderAndFile $BASE_FOLDER/ckptDir/$dataType'_sept_nclasses_2_v20_'$classA'_'$classB'.pth' --classSplit $classPairSrting --gpu_id 0
+#     echo '================> 2-way classification: Squamous vs Barrets <======================='
+#     classPairSrting='1,2'
+#     classA='1'
+#     classB='2'
+#     python $BASE_FOLDER/test.py --test_data $BASE_FOLDER/data/$dataType'_test_data_'$classA'_'$classB'.csv' --test_label $BASE_FOLDER/data/$dataType'_test_label_'$classA'_'$classB'.csv' --fileType $dataType \
+#     --num_labels 2 --ckptFolderAndFile $BASE_FOLDER/ckptDir/$dataType'_sept_nclasses_2_v20_'$classA'_'$classB'.pth' --classSplit $classPairSrting --gpu_id 0
 
 
-    echo '================> 2-way classification: Barretts vs Dysplasia <======================='
-    classPairSrting='2,3'
-    classA='2'
-    classB='3'
-    python $BASE_FOLDER/test.py --test_data $BASE_FOLDER/data/$dataType'_test_data_'$classA'_'$classB'.csv' --test_label $BASE_FOLDER/data/$dataType'_test_label_'$classA'_'$classB'.csv' --fileType $dataType \
-    --num_labels 2 --ckptFolderAndFile $BASE_FOLDER/ckptDir/$dataType'_sept_nclasses_2_v20_'$classA'_'$classB'.pth' --classSplit $classPairSrting --gpu_id 0
 
-fi
+#     echo '================> 2-way classification: Squamous vs Dysplasia <======================='
+#     classPairSrting='1,3'
+#     classA='1'
+#     classB='3'
+#     python $BASE_FOLDER/test.py --test_data $BASE_FOLDER/data/$dataType'_test_data_'$classA'_'$classB'.csv' --test_label $BASE_FOLDER/data/$dataType'_test_label_'$classA'_'$classB'.csv' --fileType $dataType \
+#     --num_labels 2 --ckptFolderAndFile $BASE_FOLDER/ckptDir/$dataType'_sept_nclasses_2_v20_'$classA'_'$classB'.pth' --classSplit $classPairSrting --gpu_id 0
+
+
+#     echo '================> 2-way classification: Barretts vs Dysplasia <======================='
+#     classPairSrting='2,3'
+#     classA='2'
+#     classB='3'
+#     python $BASE_FOLDER/test.py --test_data $BASE_FOLDER/data/$dataType'_test_data_'$classA'_'$classB'.csv' --test_label $BASE_FOLDER/data/$dataType'_test_label_'$classA'_'$classB'.csv' --fileType $dataType \
+#     --num_labels 2 --ckptFolderAndFile $BASE_FOLDER/ckptDir/$dataType'_sept_nclasses_2_v20_'$classA'_'$classB'.pth' --classSplit $classPairSrting --gpu_id 0
+
+# fi
 echo '================> End of all testing on unseen data, see result folders for outputs <======================='

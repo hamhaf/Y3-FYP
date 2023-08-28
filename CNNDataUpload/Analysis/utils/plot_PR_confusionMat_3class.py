@@ -35,7 +35,8 @@ def confusionPlot (y_test1, predicted, resultFileName):
     if n_classes == 4:
         df_cm = pd.DataFrame(cf_AAM, index=['Squamous', 'Barretts', 'Dysplasia', 'Cancer'], columns=['Squamous', 'Barretts', 'Dysplasia', 'Cancer'], )
     elif (n_classes == 3):
-        df_cm = pd.DataFrame(cf_AAM, index=['Squamous', 'Barretts', 'Dysplasia'], columns=['Squamous', 'Barretts', 'Dysplasia'], )
+        print(f"cf_AAM: {cf_AAM}")
+        df_cm = pd.DataFrame(cf_AAM, index=['Squamous', 'Barretts', 'Dysplasia', 'Cancer'], columns=['Squamous', 'Barretts', 'Dysplasia', 'Cancer'], )
     else:
         # df_cm = pd.DataFrame(cf_AAM, index=['Squamous', 'Barretts'], columns=['Squamous', 'Barretts'], )
         # df_cm = pd.DataFrame(cf_AAM, index=['Squamous' 'Dysplasia'], columns=['Squamous', 'Dysplasia'], )

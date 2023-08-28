@@ -164,6 +164,7 @@ if __name__ == '__main__':
                 labelsv = torch.FloatTensor(sample['label'].to(device).type(torch.float).unsqueeze(1))
             
             output = m(inputv)
+            # print(f"output.shape: {output.shape} \nlabelsv.type(torch.long).flatten().shape: {labelsv.type(torch.long).flatten().shape}")
             loss = criterion(output, labelsv.type(torch.long).flatten())
             optimizer.zero_grad()
             loss.backward()

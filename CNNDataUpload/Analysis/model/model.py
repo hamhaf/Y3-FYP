@@ -32,7 +32,7 @@ class model(nn.Module):
         self.conv3 = nn.Conv1d(36, 72, kernel_size=3) #18 input channels from previous Conv. layer, 36 out
         self.conv3_drop = nn.Dropout2d() #dropout
         # new data 433 ()
-        self.fc1 = nn.Linear(3744, 72)
+        self.fc1 = nn.Linear(2160, 72)
         self.fc2 = nn.Linear(72, nlabel) #Fully-connected classifier layer
     
     def forward(self, x):
